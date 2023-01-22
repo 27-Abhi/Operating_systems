@@ -5,7 +5,7 @@
 import java.util.*;
 /**
  *
- * @author lenovo
+ * @author lenovo ff
  */
 public class fcfs{
     
