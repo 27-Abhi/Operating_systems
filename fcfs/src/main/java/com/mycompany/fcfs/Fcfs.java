@@ -5,74 +5,67 @@
 package com.mycompany.fcfs;
 
 import java.util.*;
+import java.io.*;
 
 public class Fcfs{
+ 
+    public static void Cal(int at[],int bt[],int n){
     
-
-// Function to Calculate waiting time
-// and average waiting time
-        public static void CalculateWaitingTime(int at[],int bt[], int N)
+        int[] wt=new int[n];
+        
+        wt[0]=0;
+        int wtavg=0;
+        int tatavg=0;
+        for(int i=1;i<n;i++)
         {
-
-            // Declare the array for waiting
-            // time
-            int []wt = new int[N];
-
-            // Waiting time for first process
-            // is 0
-            wt[0] = 0;
-
-            // Print waiting time process 1
-            System.out.print("P.No.\t Arrival Time\t" + "Burst Time \t Waiting Time \n");
-            System.out.print("1"+ "\t\t" +  at[0]+ "\t\t" + bt[0]+ "\t\t" +  wt[0] +"\n");
-
-            // Calculating waiting time for
-            // each process from the given
-            // formula
-            for (int i = 1; i < 5; i++) {
-                wt[i] = (at[i - 1] + bt[i - 1] + wt[i - 1]) - at[i];
-
-                // Print the waiting time for
-                // each process
-                System.out.print(i + 1+ "\t\t" +  at[i]
-                        + "\t\t" +  bt[i]+ "\t\t"
-                        + wt[i] +"\n");
-            }
-
-            // Declare variable to calculate
-            // average
-            float average;
-            float sum = 0;
-
-            // Loop to calculate sum of all
-            // waiting time
-            for (int i = 0; i < 5; i++) {
-                sum = sum + wt[i];
-            }
-
-            // Find average waiting time
-            // by dividing it by no. of process
-            average = sum / 5;
-
-            // Print Average Waiting Time
-            System.out.print("Average waiting time = "
-                    + average);
+            //cal waiting time
+            wt[i]=at[i-1]+wt[i-1]+bt[i-1]-at[i];
+            wtavg+=wt[i];
+            
         }
+        
+        //cal tat
+        int[] tat=new int[n];
 
-// Driver code
-        public static void main(String[] args)
+        for(int i=0;i<n;i++)
         {
-            // Number of process
-            int N = 5;
-
-            // Array for Arrival time
-            int at[] = { 0, 1, 2, 3, 4 };
-
-            // Array for Burst Time
-            int bt[] = { 4, 3, 1, 2, 5 };
-
-            // Function call to find
-            // waiting time
-            CalculateWaitingTime(at, bt, N);
+            tat[i]=wt[i]+bt[i];
+            tatavg+=tat[i];
         }
+        
+         System.out.println("Pno\tat\tbt\ttat\twt\t");
+       System.out.print("1"+ "\t\t" +  at[0]+ "\t\t" + bt[0]+ "\t\t" +  wt[0] +"\t\t"+tat[0]+"\n");
+
+       for(int i=1;i<n;i++)
+       {
+             System.out.print(i+1 + "\t\t" +  at[i+1]+ "\t\t" + bt[i+1]+ "\t\t" +  wt[i+1] +"\t\t"+tat[i+1]+"\n");
+       
+       }
     }
+    
+    public static void main(String []args)
+    {
+        int n;
+        
+       
+        System.out.println("Enter number of processes");
+        Scanner sc=new Scanner(System.in);
+        n=sc.nextInt();
+         int[] at=new int[n];
+        int[] bt=new int[n];
+        
+        System.out.println("Enter Arrval time");
+       for(int i=0;i<n;i++)
+       {
+           at[i]=sc.nextInt();
+       }
+        
+        System.out.println("Enter Burst time time");
+       for(int i=0;i<n;i++)
+       {
+           bt[i]=sc.nextInt();
+       }
+       Fcfs.Cal(at,bt,n);
+       
+    }
+}
