@@ -1,2 +1,2 @@
-#Operating system Algorithms in JAVA
+Operating system Algorithms in JAVA.
 (Adding them as I practice them)
