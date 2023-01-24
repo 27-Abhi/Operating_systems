@@ -41,23 +41,24 @@ public class NonprempriveSJF {
       {
       flag[i]=0;
       }
-      int tot;
+      int tot=0;
       while(true)
       { 
-          int c=n;
-           int min=9999;
-          for(int i=0;i<pno;i++)
-          {if(flag[i]==0 && at[i]<st && bt[i]<min)
+          int c=pno;
+           int min=9999; //initialise inside the loop so that the value of min is 99999 whenever there is a new iteraiton   
+           if(tot==pno)
+         {
+             break;
+         }
+           for(int i=0;i<pno;i++)
+          {if(flag[i]==0 && at[i]<=st && bt[i]<min) //why at[i]<st?
           {
               min=bt[i];
               c=i;
           }
           }
-         if(tot==n)
-         {
-             break;
-         }
-          if(c==n)
+       
+          if(c==pno)
           {
           st++;
           }
@@ -66,6 +67,7 @@ public class NonprempriveSJF {
           
           else{
               ct[c]=bt[c]+st;
+              st+=bt[c];
               tat[c]=ct[c]-at[c];
               wt[c]=tat[c]-bt[c];
               flag[c]=1;
@@ -74,6 +76,11 @@ public class NonprempriveSJF {
               
             }
       
+      }
+      System.out.println("\tpid\t\tat\t\tbt\t\ttat\t\twt\t\tct\t\t");
+      for(int i=0;i<pno;i++)
+      {
+      System.out.println("\t\t"+pid[i]+"\t\t"+at[i]+"\t\t"+bt[i]+"\t\t"+tat[i]+"\t\t"+wt[i]+"\t\t"+ct[i]+"\t\t");
       }
       
       
