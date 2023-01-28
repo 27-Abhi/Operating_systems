@@ -73,9 +73,8 @@ public class NonprempriveSJF {
               flag[c]=1;
               pid[tot]=c++;
               tot++;
-              
             }
-      
+
       }
       System.out.println("\tpid\t\tat\t\tbt\t\ttat\t\twt\t\tct\t\t");
       for(int i=0;i<pno;i++)
