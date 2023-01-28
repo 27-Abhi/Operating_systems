@@ -73,7 +73,6 @@ public class NonprempriveSJF {
               flag[c]=1;
               pid[tot]=c++;
               tot++;
-              
             }
       
       }
