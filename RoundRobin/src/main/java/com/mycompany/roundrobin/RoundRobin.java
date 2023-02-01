@@ -24,7 +24,7 @@ public class RoundRobin {
         int[] tat=new int[pno];
         int[] ct=new int[pno]; //completion time
         int[] rem_bt=new int[pno]; //remaining burst time
-        int count=0; //counting the number of processes completed
+         //counting the number of processes completed
         int time=0; //time of the whole thing
         
         System.out.println("Enter the burst time");
@@ -33,11 +33,11 @@ public class RoundRobin {
               bt[i]= sc.nextInt();
               rem_bt[i]=bt[i];
         }
-        
+        int i,count=0;
         
         
    while(count!=pno){
-          for(int i=0;i<pno;i++)
+          for(i=0,count=0;i<pno;i++)
         {
             if(rem_bt[i]==0) //if the process has completed execution
             {
@@ -66,13 +66,13 @@ public class RoundRobin {
         
       }}
             //calculate tat and wt
-            for(int i=0;i<pno;i++)
+            for(i=0;i<pno;i++)
             {
                 tat[i]=ct[i]; //since all process arrive at 0
                 wt[i]=tat[i]-bt[i];
             }
              System.out.println("\tpid\t\tbt\t\ttat\t\twt\t\tct\t\t");
-      for(int i=0;i<pno;i++)
+      for(i=0;i<pno;i++)
       {
       System.out.println("\t\t"+i+"\t\t"+bt[i]+"\t\t"+tat[i]+"\t\t"+wt[i]+"\t\t"+ct[i]+"\t\t");
       }

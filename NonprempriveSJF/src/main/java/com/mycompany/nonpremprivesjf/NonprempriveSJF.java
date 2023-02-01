@@ -9,7 +9,28 @@ import java.util.*;
  * @author lenovo
  */
 public class NonprempriveSJF {
+    
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+    /*
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         
@@ -86,3 +107,4 @@ public class NonprempriveSJF {
       
     }
 }
+*/
